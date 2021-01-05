@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { UppyApi } from './uppy-api.model';
 import { UppyConfig } from './uppy-config';
 
 @Component({
@@ -16,9 +17,11 @@ export class UppyAngularComponent implements OnInit {
   @Output() onFileUpload = new EventEmitter();
   @Output() uploadResult = new EventEmitter();
 
+  private uppyInstance: any;
 
-  uppyInstance: any
-
+  get uppy(): UppyApi {
+    return this.uppyInstance;
+  }
 
   ngOnInit() {
 
