@@ -1,6 +1,7 @@
 export interface UppyApi {
   getFile(fileId: string): UppyFile;
   upload(): Promise<any>;
+  reset(): void;
 }
 
 export interface UppyFile {
