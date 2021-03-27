@@ -16,6 +16,7 @@ export class UppyAngularComponent implements OnInit {
   @Output() onFileAdd = new EventEmitter();
   @Output() onFileUpload = new EventEmitter();
   @Output() uploadResult = new EventEmitter();
+  @Output() onFileRemoved = new EventEmitter();
 
   private uppyInstance: any;
 
@@ -119,6 +120,9 @@ export class UppyAngularComponent implements OnInit {
       this.uploadResult.emit(result)
     })
 
+    uppy.on('file-removed', (file, reason) => {
+      this.onFileRemoved.emit(file);
+    })
   }
 
 }
